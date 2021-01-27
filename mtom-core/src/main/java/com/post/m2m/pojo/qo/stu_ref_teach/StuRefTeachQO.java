@@ -29,16 +29,16 @@ public class StuRefTeachQO extends PageQO {
     private String teacherId;
 
     @ApiParam(value = StudentExample.N_NAME, example = StudentExample.E_NAME)
-    @Length(max = 32, message = "sName最大长度不能超过{max}")
-    private String sName;
+    @Length(max = 32, message = "stuName最大长度不能超过{max}")
+    private String stuName;
 
     @ApiParam(value = TeacherExample.N_TEACHER_NAME, example = TeacherExample.E_TEACHER_NAME)
-    @Length(max = 10, message = "tName最大长度不能超过{max}")
-    private String tName;
+    @Length(max = 10, message = "teaName最大长度不能超过{max}")
+    private String teaName;
 
     @ApiParam(value = TeacherExample.N_SUBJECT, example = TeacherExample.E_SUBJECT)
-    @Length(max = 10, message = "subject最大长度不能超过{max}")
-    private String subject;
+    @Length(max = 10, message = "teaSubject最大长度不能超过{max}")
+    private String teaSubject;
 
 
 }

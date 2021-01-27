@@ -62,29 +62,29 @@
         <if test="teacherId != null and teacherId != '' ">
             and t.teacher_id = #{teacherId}
         </if>
-        <bind name="s_name_con_ex" value="sName != null and sName != '' " />
-        <if test="s_name_con_ex ">
+        <bind name="stu_name_con_ex" value="stuName != null and stuName != '' " />
+        <if test="stu_name_con_ex ">
             and exists(
                 select 1 from student e1
                 where e1.id = t.stu_id
-            <if test="s_name_con_ex">
-                <bind name="sName_pattern" value="'%' + sName + '%'" />
-                and e1.`name` like #{sName_pattern}
+            <if test="stu_name_con_ex">
+                <bind name="stuName_pattern" value="'%' + stuName + '%'" />
+                and e1.`name` like #{stuName_pattern}
             </if>
             )
         </if>
-        <bind name="t_name_con_ex" value="tName != null and tName != '' " />
-        <bind name="subject_con_ex" value="subject != null and subject != '' " />
-        <if test="t_name_con_ex or subject_con_ex ">
+        <bind name="tea_name_con_ex" value="teaName != null and teaName != '' " />
+        <bind name="tea_subject_con_ex" value="teaSubject != null and teaSubject != '' " />
+        <if test="tea_name_con_ex or tea_subject_con_ex ">
             and exists(
                 select 1 from teacher e2
                 where e2.id = t.teacher_id
-            <if test="t_name_con_ex">
-                <bind name="tName_pattern" value="'%' + tName + '%'" />
-                and e2.teacher_name like #{tName_pattern}
+            <if test="tea_name_con_ex">
+                <bind name="teaName_pattern" value="'%' + teaName + '%'" />
+                and e2.teacher_name like #{teaName_pattern}
             </if>
-            <if test="subject_con_ex">
-                and e2.`subject` = #{subject}
+            <if test="tea_subject_con_ex">
+                and e2.`subject` = #{teaSubject}
             </if>
             )
         </if>
@@ -105,9 +105,9 @@
     <select id="findListByQuery" parameterType="StuRefTeachQO" resultType="StuRefTeachListVO">
         select
             <include refid="stuRefTeachColumns"><property name="alias" value="t"/></include>
-            ,c1.`name` as sName
-            ,c2.teacher_name as tName
-            ,c2.`subject` as subject
+            ,c1.`name` as stuName
+            ,c2.teacher_name as teaName
+            ,c2.`subject` as teaSubject
         from stu_ref_teach t
         left outer join student c1
             on c1.id = t.stu_id

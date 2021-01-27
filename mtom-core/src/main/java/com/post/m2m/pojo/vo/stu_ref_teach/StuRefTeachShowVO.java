@@ -31,13 +31,13 @@ public class StuRefTeachShowVO extends AbstractVO {
     private String teacherId;
 
     @ApiModelProperty(notes = StudentExample.N_NAME, example = StudentExample.E_NAME)
-    private String sName;
+    private String stuName;
 
     @ApiModelProperty(notes = TeacherExample.N_TEACHER_NAME, example = TeacherExample.E_TEACHER_NAME)
-    private String tName;
+    private String teaName;
 
     @ApiModelProperty(notes = TeacherExample.N_SUBJECT, example = TeacherExample.E_SUBJECT)
-    private String subject;
+    private String teaSubject;
 
 
 

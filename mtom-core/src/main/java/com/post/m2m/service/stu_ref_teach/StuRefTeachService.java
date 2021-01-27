@@ -137,12 +137,12 @@ public class StuRefTeachService {
         StuRefTeachShowVO showVO = StuRefTeachMapper.INSTANCE.toShowVO(stuRefTeach);
         if (stuRefTeach.getStuId() != null) {
             StudentPO _studentPO = studentDAO.findById(stuRefTeach.getStuId());
-            showVO.setSName(_studentPO.getName());
+            showVO.setStuName(_studentPO.getName());
         }
         if (stuRefTeach.getTeacherId() != null) {
             TeacherPO _teacherPO = teacherDAO.findById(stuRefTeach.getTeacherId());
-            showVO.setTName(_teacherPO.getTeacherName());
-            showVO.setSubject(_teacherPO.getSubject());
+            showVO.setTeaName(_teacherPO.getTeacherName());
+            showVO.setTeaSubject(_teacherPO.getSubject());
         }
         return showVO;
     }
