@@ -1,7 +1,8 @@
 package com.post.m2m.pojo.dto;
 
 import com.alibaba.excel.annotation.ExcelIgnore;
-import com.chinapost.devp.common.pojo.dto.AbstractDTO;
+
+import com.post.common.pojo.dto.AbstractDTO;
 import lombok.Data;
 
 /**

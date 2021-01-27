@@ -5,14 +5,18 @@ import com.post.common.exception.BusinessException;
 import com.post.common.pojo.vo.PageVO;
 import com.post.common.util.UUIDUtil;
 import com.post.m2m.dao.stu_ref_teach.StuRefTeachDAO;
-import com.post.m2m.dao.stu_ref_teach.StudentDAO;
-import com.post.m2m.dao.stu_ref_teach.TeacherDAO;
+
+
+import com.post.m2m.dao.student.StudentDAO;
+import com.post.m2m.dao.teacher.TeacherDAO;
 import com.post.m2m.pojo.dto.stu_ref_teach.StuRefTeachAddDTO;
 import com.post.m2m.pojo.dto.stu_ref_teach.StuRefTeachUpdateDTO;
 import com.post.m2m.pojo.mapper.stu_ref_teach.StuRefTeachMapper;
 import com.post.m2m.pojo.po.stu_ref_teach.StuRefTeachPO;
-import com.post.m2m.pojo.po.stu_ref_teach.StudentPO;
-import com.post.m2m.pojo.po.stu_ref_teach.TeacherPO;
+
+
+import com.post.m2m.pojo.po.student.StudentPO;
+import com.post.m2m.pojo.po.teacher.TeacherPO;
 import com.post.m2m.pojo.qo.stu_ref_teach.StuRefTeachQO;
 import com.post.m2m.pojo.vo.stu_ref_teach.StuRefTeachListVO;
 import com.post.m2m.pojo.vo.stu_ref_teach.StuRefTeachShowVO;

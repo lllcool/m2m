@@ -1,8 +1,9 @@
 package com.post.m2m.pojo.vo.stu_ref_teach;
 
 import com.post.common.pojo.vo.AbstractVO;
-import com.post.m2m.pojo.example.stu_ref_teach.StudentExample;
-import com.post.m2m.pojo.example.stu_ref_teach.TeacherExample;
+
+import com.post.m2m.pojo.example.student.StudentExample;
+import com.post.m2m.pojo.example.teacher.TeacherExample;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

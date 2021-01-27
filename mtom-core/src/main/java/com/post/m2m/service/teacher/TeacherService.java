@@ -6,7 +6,8 @@ import com.post.common.pojo.qo.OptionQO;
 import com.post.common.pojo.vo.OptionVO;
 import com.post.common.pojo.vo.PageVO;
 import com.post.common.util.UUIDUtil;
-import com.post.m2m.dao.teacher.StuRefTeachDAO;
+
+import com.post.m2m.dao.stu_ref_teach.StuRefTeachDAO;
 import com.post.m2m.dao.teacher.TeacherDAO;
 import com.post.m2m.pojo.dto.teacher.TeacherAddDTO;
 import com.post.m2m.pojo.dto.teacher.TeacherUpdateDTO;
