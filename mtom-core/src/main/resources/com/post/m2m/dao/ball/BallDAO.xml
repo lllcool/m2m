@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.post.m2m.dao.ball.BallDAO">
+
+
+    <sql id="ballColumns">
+        ${alias}.id,
+        ${alias}.b_name as bName,
+        ${alias}.price
+    </sql>
+
+
+    <select id="findById" resultType="BallPO">
+        select
+            <include refid="ballColumns"><property name="alias" value="t"/></include>
+        from ball t
+        <where>
+            and t.id = #{arg0}
+        </where>
+        limit 1
+    </select>
+
+    <select id="exist" resultType="boolean">
+        select count(1) from ball
+        <where>
+            and id = #{arg0}
+        </where>
+    </select>
+
+    <insert id="_save" keyProperty="id" parameterType="BallPO">
+        insert into ball(
+        id,
+        b_name,
+        price
+        ) VALUES (
+        #{id,jdbcType=VARCHAR},
+        #{bName,jdbcType=VARCHAR},
+        #{price,jdbcType=INTEGER}
+        )
+    </insert>
+
+
+    <update id="_update" parameterType="BallPO">
+        update ball set
+            b_name=#{bName,jdbcType=VARCHAR},
+            price=#{price,jdbcType=INTEGER}
+        where id=#{id,jdbcType=VARCHAR}
+    </update>
+
+    <delete id="delete">
+        delete from ball
+        where id=#{arg0,jdbcType=VARCHAR}
+    </delete>
+
+
+    <sql id="queryCondition">
+        <if test="id != null and id != '' ">
+            and t.id = #{id}
+        </if>
+        <if test="bName != null and bName != '' ">
+            <bind name="bName_pattern" value="'%' + bName + '%'" />
+            and t.b_name like #{bName_pattern}
+        </if>
+        <if test="price != null ">
+            and t.price = #{price}
+        </if>
+    </sql>
+
+    <sql id="orderCondition">
+        order by
+            t.id desc
+    </sql>
+
+    <select id="findCountByQuery" parameterType="BallQO" resultType="int">
+        select count(1) from ball t
+        <where>
+        <include refid="queryCondition"/>
+        </where>
+    </select>
+
+    <select id="findListByQuery" parameterType="BallQO" resultType="BallListVO">
+        select
+            <include refid="ballColumns"><property name="alias" value="t"/></include>
+        from ball t
+        <where>
+        <include refid="queryCondition"/>
+        </where>
+        <include refid="orderCondition"/>
+        limit #{startIndex},#{pageSize}
+    </select>
+
+
+
+    <!-- 以上是自动生成的代码，尽量不要手动修改，新的sql请写在本行注释以下区域 -->
+
+
+</mapper>
