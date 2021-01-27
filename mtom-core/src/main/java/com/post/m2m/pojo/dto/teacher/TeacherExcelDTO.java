@@ -24,7 +24,7 @@ public class TeacherExcelDTO extends AbstractExcelDTO {
 
     @ExcelProperty("名字")
     @ColumnWidth(19)
-    private String tName;
+    private String teacherName;
 
 
     /**
@@ -35,7 +35,7 @@ public class TeacherExcelDTO extends AbstractExcelDTO {
     public static TeacherExcelDTO example() {
         TeacherExcelDTO example = new TeacherExcelDTO();
         example.setSubject(E_SUBJECT);
-        example.setTName(E_T_NAME);
+        example.setTeacherName(E_TEACHER_NAME);
         return example;
     }
 

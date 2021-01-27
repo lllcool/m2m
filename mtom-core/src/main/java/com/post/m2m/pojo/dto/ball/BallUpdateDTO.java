@@ -27,10 +27,10 @@ public class BallUpdateDTO extends AbstractDTO {
     @Length(max = 32)
     private String id;
 
-    @ApiModelProperty(notes = N_B_NAME, example = E_B_NAME, required = true)
+    @ApiModelProperty(notes = N_BALL_NAME, example = E_BALL_NAME, required = true)
     @NotNull
     @Length(max = 10)
-    private String bName;
+    private String ballName;
 
     @ApiModelProperty(notes = N_PRICE, example = E_PRICE)
     private Integer price;

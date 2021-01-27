@@ -1,8 +1,7 @@
 package com.post.m2m.pojo.qo.invoicedetail;
 
 import com.post.common.pojo.qo.PageQO;
-
-import com.post.m2m.pojo.example.invoice.InvoiceExample;
+import com.post.m2m.pojo.example.invoicedetail.InvoiceExample;
 import io.swagger.annotations.ApiParam;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

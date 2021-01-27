@@ -8,7 +8,7 @@
     <sql id="teacherColumns">
         ${alias}.id,
         ${alias}.`subject`,
-        ${alias}.tname
+        ${alias}.teacher_name as teacherName
     </sql>
 
 
@@ -33,11 +33,11 @@
         insert into teacher(
         id,
         `subject`,
-        tname
+        teacher_name
         ) VALUES (
         #{id,jdbcType=VARCHAR},
         #{subject,jdbcType=VARCHAR},
-        #{tName,jdbcType=VARCHAR}
+        #{teacherName,jdbcType=VARCHAR}
         )
     </insert>
 
@@ -45,7 +45,7 @@
     <update id="_update" parameterType="TeacherPO">
         update teacher set
             `subject`=#{subject,jdbcType=VARCHAR},
-            tname=#{tName,jdbcType=VARCHAR}
+            teacher_name=#{teacherName,jdbcType=VARCHAR}
         where id=#{id,jdbcType=VARCHAR}
     </update>
 
@@ -59,9 +59,9 @@
         <if test="subject != null and subject != '' ">
             and t.`subject` = #{subject}
         </if>
-        <if test="tName != null and tName != '' ">
-            <bind name="tName_pattern" value="'%' + tName + '%'" />
-            and t.tname like #{tName_pattern}
+        <if test="teacherName != null and teacherName != '' ">
+            <bind name="teacherName_pattern" value="'%' + teacherName + '%'" />
+            and t.teacher_name like #{teacherName_pattern}
         </if>
     </sql>
 
@@ -91,7 +91,7 @@
     <select id="findOptions" parameterType="OptionQO" resultType="OptionVO">
         select
             t.id as `key`,
-            t.tname as `value`
+            t.teacher_name as `value`
         from teacher t
         <where>
             <if test="lastKey != null">
@@ -99,7 +99,7 @@
             </if>
             <if test="matchValue != null and matchValue != '' ">
                 <bind name="matchValue_pattern" value="'%' + matchValue + '%'" />
-                and t.tname like #{matchValue_pattern}
+                and t.teacher_name like #{matchValue_pattern}
             </if>
         </where>
         order by t.id asc

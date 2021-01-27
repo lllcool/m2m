@@ -20,13 +20,13 @@ import static com.post.m2m.pojo.example.stu_ref_teach.StuRefTeachExample.*;
 @ApiModel(description = "新增【StuRefTeach】的参数")
 public class StuRefTeachAddDTO extends AbstractDTO {
 
-    @ApiModelProperty(notes = N_S_ID, example = E_S_ID)
+    @ApiModelProperty(notes = N_STU_ID, example = E_STU_ID)
     @Length(max = 32)
-    private String sId;
+    private String stuId;
 
-    @ApiModelProperty(notes = N_T_ID, example = E_T_ID)
+    @ApiModelProperty(notes = N_TEACHER_ID, example = E_TEACHER_ID)
     @Length(max = 32)
-    private String tId;
+    private String teacherId;
 
 
 }

@@ -22,8 +22,8 @@ public class BallListVO extends AbstractVO {
     @ApiModelProperty(notes = N_ID, example = E_ID)
     private String id;
 
-    @ApiModelProperty(notes = N_B_NAME, example = E_B_NAME)
-    private String bName;
+    @ApiModelProperty(notes = N_BALL_NAME, example = E_BALL_NAME)
+    private String ballName;
 
     @ApiModelProperty(notes = N_PRICE, example = E_PRICE)
     private Integer price;

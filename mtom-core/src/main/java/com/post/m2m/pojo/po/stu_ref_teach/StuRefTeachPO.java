@@ -23,12 +23,12 @@ public class StuRefTeachPO extends AbstractPO {
     /**
      * 主键ID
      */
-    private String sId;
+    private String stuId;
 
     /**
      * 老师
      */
-    private String tId;
+    private String teacherId;
 
 
 }

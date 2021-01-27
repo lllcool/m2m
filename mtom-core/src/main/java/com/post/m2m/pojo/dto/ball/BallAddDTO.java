@@ -22,10 +22,10 @@ import static com.post.m2m.pojo.example.ball.BallExample.*;
 @ApiModel(description = "新增【Ball】的参数")
 public class BallAddDTO extends AbstractDTO {
 
-    @ApiModelProperty(notes = N_B_NAME, example = E_B_NAME, required = true)
+    @ApiModelProperty(notes = N_BALL_NAME, example = E_BALL_NAME, required = true)
     @NotNull
     @Length(max = 10)
-    private String bName;
+    private String ballName;
 
     @ApiModelProperty(notes = N_PRICE, example = E_PRICE)
     private Integer price;

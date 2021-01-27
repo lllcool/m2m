@@ -22,9 +22,9 @@ public class BallQO extends PageQO {
     @Length(max = 32, message = "id最大长度不能超过{max}")
     private String id;
 
-    @ApiParam(value = N_B_NAME, example = E_B_NAME)
-    @Length(max = 10, message = "bName最大长度不能超过{max}")
-    private String bName;
+    @ApiParam(value = N_BALL_NAME, example = E_BALL_NAME)
+    @Length(max = 10, message = "ballName最大长度不能超过{max}")
+    private String ballName;
 
     @ApiParam(value = N_PRICE, example = E_PRICE)
     private Integer price;

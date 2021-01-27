@@ -24,9 +24,9 @@ public class TeacherAddDTO extends AbstractDTO {
     @Length(max = 10)
     private String subject;
 
-    @ApiModelProperty(notes = N_T_NAME, example = E_T_NAME)
+    @ApiModelProperty(notes = N_TEACHER_NAME, example = E_TEACHER_NAME)
     @Length(max = 10)
-    private String tName;
+    private String teacherName;
 
 
 }

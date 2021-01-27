@@ -31,8 +31,6 @@ public class WebConst {
 
         public static final String BALL = API_PATH + "/ball";
 
-        public static final String MEMBER = API_PATH + "/member";
-
     }
 
 }

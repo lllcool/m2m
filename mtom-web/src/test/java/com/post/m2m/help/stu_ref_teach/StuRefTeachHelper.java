@@ -19,10 +19,10 @@ public class StuRefTeachHelper {
      *
      * @return
      */
-    public StuRefTeachAddDTO getStuRefTeachAddDTO(String sId, String tId) {
+    public StuRefTeachAddDTO getStuRefTeachAddDTO(String stuId, String teacherId) {
         StuRefTeachAddDTO dto = new StuRefTeachAddDTO();
-        dto.setSId(sId);
-        dto.setTId(tId);
+        dto.setStuId(stuId);
+        dto.setTeacherId(teacherId);
         return dto;
     }
 
@@ -35,8 +35,8 @@ public class StuRefTeachHelper {
     public StuRefTeachUpdateDTO getStuRefTeachUpdateDTO(StuRefTeachPO stuRefTeach) {
         StuRefTeachUpdateDTO dto = new StuRefTeachUpdateDTO();
         dto.setId(stuRefTeach.getId());
-        dto.setSId(stuRefTeach.getSId());
-        dto.setTId(stuRefTeach.getTId());
+        dto.setStuId(stuRefTeach.getStuId());
+        dto.setTeacherId(stuRefTeach.getTeacherId());
         return dto;
     }
 
@@ -45,8 +45,8 @@ public class StuRefTeachHelper {
      *
      * @return
      */
-    public StuRefTeachPO saveStuRefTeachExample(String sId, String tId) {
-        StuRefTeachAddDTO addDTO = this.getStuRefTeachAddDTO(sId, tId);
+    public StuRefTeachPO saveStuRefTeachExample(String stuId, String teacherId) {
+        StuRefTeachAddDTO addDTO = this.getStuRefTeachAddDTO(stuId, teacherId);
         return stuRefTeachService.save(addDTO);
     }
 

@@ -5,18 +5,14 @@ import com.post.common.exception.BusinessException;
 import com.post.common.pojo.vo.PageVO;
 import com.post.common.util.UUIDUtil;
 import com.post.m2m.dao.stu_ref_teach.StuRefTeachDAO;
-
-
-import com.post.m2m.dao.student.StudentDAO;
-import com.post.m2m.dao.teacher.TeacherDAO;
+import com.post.m2m.dao.stu_ref_teach.StudentDAO;
+import com.post.m2m.dao.stu_ref_teach.TeacherDAO;
 import com.post.m2m.pojo.dto.stu_ref_teach.StuRefTeachAddDTO;
 import com.post.m2m.pojo.dto.stu_ref_teach.StuRefTeachUpdateDTO;
 import com.post.m2m.pojo.mapper.stu_ref_teach.StuRefTeachMapper;
 import com.post.m2m.pojo.po.stu_ref_teach.StuRefTeachPO;
-
-
-import com.post.m2m.pojo.po.student.StudentPO;
-import com.post.m2m.pojo.po.teacher.TeacherPO;
+import com.post.m2m.pojo.po.stu_ref_teach.StudentPO;
+import com.post.m2m.pojo.po.stu_ref_teach.TeacherPO;
 import com.post.m2m.pojo.qo.stu_ref_teach.StuRefTeachQO;
 import com.post.m2m.pojo.vo.stu_ref_teach.StuRefTeachListVO;
 import com.post.m2m.pojo.vo.stu_ref_teach.StuRefTeachShowVO;
@@ -54,11 +50,11 @@ public class StuRefTeachService {
     @Transactional(rollbackFor = RuntimeException.class)
     public StuRefTeachPO save(StuRefTeachAddDTO stuRefTeachDTO) {
         StuRefTeachPO stuRefTeach = StuRefTeachMapper.INSTANCE.fromAddDTO(stuRefTeachDTO);
-        if (stuRefTeach.getSId() != null) {
-            Assert.isTrue(studentDAO.exist(stuRefTeach.getSId()), "学生ID有误");
+        if (stuRefTeach.getStuId() != null) {
+            Assert.isTrue(studentDAO.exist(stuRefTeach.getStuId()), "学生ID有误");
         }
-        if (stuRefTeach.getTId() != null) {
-            Assert.isTrue(teacherDAO.exist(stuRefTeach.getTId()), "老师ID有误");
+        if (stuRefTeach.getTeacherId() != null) {
+            Assert.isTrue(teacherDAO.exist(stuRefTeach.getTeacherId()), "老师ID有误");
         }
         stuRefTeach.setId(UUIDUtil.getUUID());
         stuRefTeachDAO.save(stuRefTeach);
@@ -93,11 +89,11 @@ public class StuRefTeachService {
         String id = stuRefTeachUpdateDTO.getId();
         StuRefTeachPO stuRefTeach = this.getStuRefTeach(id, true);
         StuRefTeachMapper.INSTANCE.setUpdateDTO(stuRefTeach, stuRefTeachUpdateDTO);
-        if (stuRefTeach.getSId() != null) {
-            Assert.isTrue(studentDAO.exist(stuRefTeach.getSId()), "学生ID有误");
+        if (stuRefTeach.getStuId() != null) {
+            Assert.isTrue(studentDAO.exist(stuRefTeach.getStuId()), "学生ID有误");
         }
-        if (stuRefTeach.getTId() != null) {
-            Assert.isTrue(teacherDAO.exist(stuRefTeach.getTId()), "老师ID有误");
+        if (stuRefTeach.getTeacherId() != null) {
+            Assert.isTrue(teacherDAO.exist(stuRefTeach.getTeacherId()), "老师ID有误");
         }
         stuRefTeachDAO.update(stuRefTeach);
         return stuRefTeach;
@@ -139,13 +135,13 @@ public class StuRefTeachService {
     public StuRefTeachShowVO show(String id) {
         StuRefTeachPO stuRefTeach = this.getStuRefTeach(id, true);
         StuRefTeachShowVO showVO = StuRefTeachMapper.INSTANCE.toShowVO(stuRefTeach);
-        if (stuRefTeach.getSId() != null) {
-            StudentPO _studentPO = studentDAO.findById(stuRefTeach.getSId());
+        if (stuRefTeach.getStuId() != null) {
+            StudentPO _studentPO = studentDAO.findById(stuRefTeach.getStuId());
             showVO.setSName(_studentPO.getName());
         }
-        if (stuRefTeach.getTId() != null) {
-            TeacherPO _teacherPO = teacherDAO.findById(stuRefTeach.getTId());
-            showVO.setTName(_teacherPO.getTName());
+        if (stuRefTeach.getTeacherId() != null) {
+            TeacherPO _teacherPO = teacherDAO.findById(stuRefTeach.getTeacherId());
+            showVO.setTName(_teacherPO.getTeacherName());
             showVO.setSubject(_teacherPO.getSubject());
         }
         return showVO;

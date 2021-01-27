@@ -7,8 +7,8 @@
 
     <sql id="stuRefTeachColumns">
         ${alias}.id,
-        ${alias}.s_id as sId,
-        ${alias}.t_id as tId
+        ${alias}.stu_id as stuId,
+        ${alias}.teacher_id as teacherId
     </sql>
 
 
@@ -32,20 +32,20 @@
     <insert id="_save" keyProperty="id" parameterType="StuRefTeachPO">
         insert into stu_ref_teach(
         id,
-        s_id,
-        t_id
+        stu_id,
+        teacher_id
         ) VALUES (
         #{id,jdbcType=VARCHAR},
-        #{sId,jdbcType=VARCHAR},
-        #{tId,jdbcType=VARCHAR}
+        #{stuId,jdbcType=VARCHAR},
+        #{teacherId,jdbcType=VARCHAR}
         )
     </insert>
 
 
     <update id="_update" parameterType="StuRefTeachPO">
         update stu_ref_teach set
-            s_id=#{sId,jdbcType=VARCHAR},
-            t_id=#{tId,jdbcType=VARCHAR}
+            stu_id=#{stuId,jdbcType=VARCHAR},
+            teacher_id=#{teacherId,jdbcType=VARCHAR}
         where id=#{id,jdbcType=VARCHAR}
     </update>
 
@@ -56,17 +56,17 @@
 
 
     <sql id="queryCondition">
-        <if test="sId != null and sId != '' ">
-            and t.s_id = #{sId}
+        <if test="stuId != null and stuId != '' ">
+            and t.stu_id = #{stuId}
         </if>
-        <if test="tId != null and tId != '' ">
-            and t.t_id = #{tId}
+        <if test="teacherId != null and teacherId != '' ">
+            and t.teacher_id = #{teacherId}
         </if>
         <bind name="s_name_con_ex" value="sName != null and sName != '' " />
         <if test="s_name_con_ex ">
             and exists(
                 select 1 from student e1
-                where e1.id = t.s_id
+                where e1.id = t.stu_id
             <if test="s_name_con_ex">
                 <bind name="sName_pattern" value="'%' + sName + '%'" />
                 and e1.`name` like #{sName_pattern}
@@ -78,10 +78,10 @@
         <if test="t_name_con_ex or subject_con_ex ">
             and exists(
                 select 1 from teacher e2
-                where e2.id = t.t_id
+                where e2.id = t.teacher_id
             <if test="t_name_con_ex">
                 <bind name="tName_pattern" value="'%' + tName + '%'" />
-                and e2.tname like #{tName_pattern}
+                and e2.teacher_name like #{tName_pattern}
             </if>
             <if test="subject_con_ex">
                 and e2.`subject` = #{subject}
@@ -106,13 +106,13 @@
         select
             <include refid="stuRefTeachColumns"><property name="alias" value="t"/></include>
             ,c1.`name` as sName
-            ,c2.tname as tName
+            ,c2.teacher_name as tName
             ,c2.`subject` as subject
         from stu_ref_teach t
         left outer join student c1
-            on c1.id = t.s_id
+            on c1.id = t.stu_id
         left outer join teacher c2
-            on c2.id = t.t_id
+            on c2.id = t.teacher_id
         <where>
         <include refid="queryCondition"/>
         </where>
@@ -120,18 +120,18 @@
         limit #{startIndex},#{pageSize}
     </select>
 
-    <select id="getCountBySId" parameterType="String" resultType="int">
+    <select id="getCountByStuId" parameterType="String" resultType="int">
         select count(1)
         from stu_ref_teach t
         where
-            t.s_id=#{arg0}
+            t.stu_id=#{arg0}
     </select>
 
-    <select id="getCountByTId" parameterType="String" resultType="int">
+    <select id="getCountByTeacherId" parameterType="String" resultType="int">
         select count(1)
         from stu_ref_teach t
         where
-            t.t_id=#{arg0}
+            t.teacher_id=#{arg0}
     </select>
 
 

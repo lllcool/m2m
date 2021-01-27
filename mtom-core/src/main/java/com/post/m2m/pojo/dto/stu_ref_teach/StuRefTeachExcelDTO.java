@@ -20,11 +20,11 @@ public class StuRefTeachExcelDTO extends AbstractExcelDTO {
 
     @ExcelProperty("学生ID")
     @ColumnWidth(15)
-    private String sId;
+    private String stuId;
 
     @ExcelProperty("老师ID")
     @ColumnWidth(19)
-    private String tId;
+    private String teacherId;
 
 
     /**
@@ -34,8 +34,8 @@ public class StuRefTeachExcelDTO extends AbstractExcelDTO {
      */
     public static StuRefTeachExcelDTO example() {
         StuRefTeachExcelDTO example = new StuRefTeachExcelDTO();
-        example.setSId(E_S_ID);
-        example.setTId(E_T_ID);
+        example.setStuId(E_STU_ID);
+        example.setTeacherId(E_TEACHER_ID);
         return example;
     }
 

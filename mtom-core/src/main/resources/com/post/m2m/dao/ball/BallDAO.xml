@@ -7,7 +7,7 @@
 
     <sql id="ballColumns">
         ${alias}.id,
-        ${alias}.b_name as bName,
+        ${alias}.ball_name as ballName,
         ${alias}.price
     </sql>
 
@@ -32,11 +32,11 @@
     <insert id="_save" keyProperty="id" parameterType="BallPO">
         insert into ball(
         id,
-        b_name,
+        ball_name,
         price
         ) VALUES (
         #{id,jdbcType=VARCHAR},
-        #{bName,jdbcType=VARCHAR},
+        #{ballName,jdbcType=VARCHAR},
         #{price,jdbcType=INTEGER}
         )
     </insert>
@@ -44,7 +44,7 @@
 
     <update id="_update" parameterType="BallPO">
         update ball set
-            b_name=#{bName,jdbcType=VARCHAR},
+            ball_name=#{ballName,jdbcType=VARCHAR},
             price=#{price,jdbcType=INTEGER}
         where id=#{id,jdbcType=VARCHAR}
     </update>
@@ -59,9 +59,9 @@
         <if test="id != null and id != '' ">
             and t.id = #{id}
         </if>
-        <if test="bName != null and bName != '' ">
-            <bind name="bName_pattern" value="'%' + bName + '%'" />
-            and t.b_name like #{bName_pattern}
+        <if test="ballName != null and ballName != '' ">
+            <bind name="ballName_pattern" value="'%' + ballName + '%'" />
+            and t.ball_name like #{ballName_pattern}
         </if>
         <if test="price != null ">
             and t.price = #{price}

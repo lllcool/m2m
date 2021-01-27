@@ -26,7 +26,7 @@ public class TeacherExcelVO extends AbstractVO {
 
     @ExcelProperty("名字")
     @ColumnWidth(19)
-    private String tName;
+    private String teacherName;
 
 
 

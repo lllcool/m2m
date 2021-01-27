@@ -22,7 +22,7 @@ public class BallHelper {
      */
     public BallAddDTO getBallAddDTO() {
         BallAddDTO dto = new BallAddDTO();
-        dto.setBName(E_B_NAME);
+        dto.setBallName(E_BALL_NAME);
         dto.setPrice(SafeUtil.getInteger(E_PRICE));
         return dto;
     }
@@ -36,7 +36,7 @@ public class BallHelper {
     public BallUpdateDTO getBallUpdateDTO(BallPO ball) {
         BallUpdateDTO dto = new BallUpdateDTO();
         dto.setId(ball.getId());
-        dto.setBName(ball.getBName());
+        dto.setBallName(ball.getBallName());
         dto.setPrice(ball.getPrice());
         return dto;
     }

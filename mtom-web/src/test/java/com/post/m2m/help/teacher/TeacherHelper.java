@@ -22,7 +22,7 @@ public class TeacherHelper {
     public TeacherAddDTO getTeacherAddDTO() {
         TeacherAddDTO dto = new TeacherAddDTO();
         dto.setSubject(E_SUBJECT);
-        dto.setTName(E_T_NAME);
+        dto.setTeacherName(E_TEACHER_NAME);
         return dto;
     }
 
@@ -36,7 +36,7 @@ public class TeacherHelper {
         TeacherUpdateDTO dto = new TeacherUpdateDTO();
         dto.setId(teacher.getId());
         dto.setSubject(teacher.getSubject());
-        dto.setTName(teacher.getTName());
+        dto.setTeacherName(teacher.getTeacherName());
         return dto;
     }
 

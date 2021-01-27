@@ -33,7 +33,7 @@ DROP TABLE IF EXISTS `teacher`;
 CREATE TABLE `teacher` (
     `id` varchar(32) COMMENT '主键ID',
     `subject` varchar(10) DEFAULT NULL COMMENT '科目',
-    `tname` varchar(10) DEFAULT NULL COMMENT '名字',
+    `teacher_name` varchar(10) DEFAULT NULL COMMENT '名字',
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='老师';
 
@@ -50,8 +50,8 @@ DROP TABLE IF EXISTS `stu_ref_teach`;
 
 CREATE TABLE `stu_ref_teach` (
     `id` varchar(32) COMMENT '主键ID',
-    `s_id` varchar(32) DEFAULT NULL COMMENT '主键ID',
-    `t_id` varchar(32) DEFAULT NULL COMMENT '老师',
+    `stu_id` varchar(32) DEFAULT NULL COMMENT '主键ID',
+    `teacher_id` varchar(32) DEFAULT NULL COMMENT '老师',
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='老师学生关系表';
 
@@ -59,19 +59,10 @@ DROP TABLE IF EXISTS `ball`;
 
 CREATE TABLE `ball` (
     `id` varchar(32) COMMENT '主键ID',
-    `b_name` varchar(10) NOT NULL DEFAULT '无' COMMENT '球类名称',
+    `ball_name` varchar(10) NOT NULL DEFAULT '无' COMMENT '球类名称',
     `price` int(5) DEFAULT NULL COMMENT '价钱',
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='球';
-
-DROP TABLE IF EXISTS `member`;
-
-CREATE TABLE `member` (
-    `id` varchar(32) COMMENT '主键ID',
-    `m_name` varchar(10) DEFAULT NULL COMMENT '成员姓名',
-    `age` int(4) DEFAULT NULL COMMENT '成员年龄',
-    PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='成员';
 
 
 

@@ -15,9 +15,9 @@ import org.springframework.stereotype.Repository;
 @Mapper
 public interface StuRefTeachDAO extends DAO<StuRefTeachPO> {
 
-    int getCountBySId(String sId);
+    int getCountByStuId(String stuId);
 
-    int getCountByTId(String tId);
+    int getCountByTeacherId(String teacherId);
 
 
 }

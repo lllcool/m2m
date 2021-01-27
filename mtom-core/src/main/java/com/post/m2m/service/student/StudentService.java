@@ -6,8 +6,7 @@ import com.post.common.pojo.qo.OptionQO;
 import com.post.common.pojo.vo.OptionVO;
 import com.post.common.pojo.vo.PageVO;
 import com.post.common.util.UUIDUtil;
-
-import com.post.m2m.dao.stu_ref_teach.StuRefTeachDAO;
+import com.post.m2m.dao.student.StuRefTeachDAO;
 import com.post.m2m.dao.student.StudentDAO;
 import com.post.m2m.pojo.dto.student.StudentAddDTO;
 import com.post.m2m.pojo.dto.student.StudentUpdateDTO;
@@ -155,7 +154,7 @@ public class StudentService {
      * @param id
      */
     private void checkDeleteByStuRefTeach(String id) {
-        int count = stuRefTeachDAO.getCountBySId(id);
+        int count = stuRefTeachDAO.getCountByStuId(id);
         if (count > 0) {
             throw new BusinessException(ErrorCode.CASCADE_DELETE_ERROR);
         }

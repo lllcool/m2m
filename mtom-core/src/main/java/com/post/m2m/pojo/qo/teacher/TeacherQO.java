@@ -22,9 +22,9 @@ public class TeacherQO extends PageQO {
     @Length(max = 10, message = "subject最大长度不能超过{max}")
     private String subject;
 
-    @ApiParam(value = N_T_NAME, example = E_T_NAME)
-    @Length(max = 10, message = "tName最大长度不能超过{max}")
-    private String tName;
+    @ApiParam(value = N_TEACHER_NAME, example = E_TEACHER_NAME)
+    @Length(max = 10, message = "teacherName最大长度不能超过{max}")
+    private String teacherName;
 
 
 }

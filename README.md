@@ -30,7 +30,7 @@
 |------ | ---- | --- | --- | ---- |
 | id | varchar(32) | 是 | 主键 | 主键ID |
 | subject | varchar(10) |  否  |  | 科目 |
-| tname | varchar(10) |  否  |  | 名字 |
+| teacher_name | varchar(10) |  否  |  | 名字 |
 
 ### 学生【student】
 |字段名 | 类型 | 非空 | 键 | 注释 |
@@ -43,19 +43,12 @@
 |字段名 | 类型 | 非空 | 键 | 注释 |
 |------ | ---- | --- | --- | ---- |
 | id | varchar(32) | 是 | 主键 | 主键ID |
-| s_id | varchar(32) |  否  |  | 主键ID |
-| t_id | varchar(32) |  否  |  | 老师 |
+| stu_id | varchar(32) |  否  |  | 主键ID |
+| teacher_id | varchar(32) |  否  |  | 老师 |
 
 ### 球【ball】
 |字段名 | 类型 | 非空 | 键 | 注释 |
 |------ | ---- | --- | --- | ---- |
 | id | varchar(32) | 是 | 主键 | 主键ID |
-| b_name | varchar(10) | 是 |  | 球类名称 |
+| ball_name | varchar(10) | 是 |  | 球类名称 |
 | price | int(5) |  否  |  | 价钱 |
-
-### 成员【member】
-|字段名 | 类型 | 非空 | 键 | 注释 |
-|------ | ---- | --- | --- | ---- |
-| id | varchar(32) | 是 | 主键 | 主键ID |
-| m_name | varchar(10) |  否  |  | 成员姓名 |
-| age | int(4) |  否  |  | 成员年龄 |

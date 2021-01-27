@@ -23,7 +23,7 @@ public class BallPO extends AbstractPO {
     /**
      * 球类名称
      */
-    private String bName;
+    private String ballName;
 
     /**
      * 价钱

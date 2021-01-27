@@ -27,13 +27,13 @@ public class StuRefTeachUpdateDTO extends AbstractDTO {
     @Length(max = 32)
     private String id;
 
-    @ApiModelProperty(notes = N_S_ID, example = E_S_ID)
+    @ApiModelProperty(notes = N_STU_ID, example = E_STU_ID)
     @Length(max = 32)
-    private String sId;
+    private String stuId;
 
-    @ApiModelProperty(notes = N_T_ID, example = E_T_ID)
+    @ApiModelProperty(notes = N_TEACHER_ID, example = E_TEACHER_ID)
     @Length(max = 32)
-    private String tId;
+    private String teacherId;
 
 
 

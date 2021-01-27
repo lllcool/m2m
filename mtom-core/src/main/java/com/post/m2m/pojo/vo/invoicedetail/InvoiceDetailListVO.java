@@ -1,8 +1,7 @@
 package com.post.m2m.pojo.vo.invoicedetail;
 
 import com.post.common.pojo.vo.AbstractVO;
-
-import com.post.m2m.pojo.example.invoice.InvoiceExample;
+import com.post.m2m.pojo.example.invoicedetail.InvoiceExample;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

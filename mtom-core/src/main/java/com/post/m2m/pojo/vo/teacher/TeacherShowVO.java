@@ -25,8 +25,8 @@ public class TeacherShowVO extends AbstractVO {
     @ApiModelProperty(notes = N_SUBJECT, example = E_SUBJECT)
     private String subject;
 
-    @ApiModelProperty(notes = N_T_NAME, example = E_T_NAME)
-    private String tName;
+    @ApiModelProperty(notes = N_TEACHER_NAME, example = E_TEACHER_NAME)
+    private String teacherName;
 
 
 
