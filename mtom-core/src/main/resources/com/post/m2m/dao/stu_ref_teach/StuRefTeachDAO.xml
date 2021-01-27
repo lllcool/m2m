@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.post.m2m.dao.stu_ref_teach.StuRefTeachDAO">
+
+
+    <sql id="stuRefTeachColumns">
+        ${alias}.id,
+        ${alias}.s_id as sId,
+        ${alias}.t_id as tId
+    </sql>
+
+
+    <select id="findById" resultType="StuRefTeachPO">
+        select
+            <include refid="stuRefTeachColumns"><property name="alias" value="t"/></include>
+        from stu_ref_teach t
+        <where>
+            and t.id = #{arg0}
+        </where>
+        limit 1
+    </select>
+
+    <select id="exist" resultType="boolean">
+        select count(1) from stu_ref_teach
+        <where>
+            and id = #{arg0}
+        </where>
+    </select>
+
+    <insert id="_save" keyProperty="id" parameterType="StuRefTeachPO">
+        insert into stu_ref_teach(
+        id,
+        s_id,
+        t_id
+        ) VALUES (
+        #{id,jdbcType=VARCHAR},
+        #{sId,jdbcType=VARCHAR},
+        #{tId,jdbcType=VARCHAR}
+        )
+    </insert>
+
+
+    <update id="_update" parameterType="StuRefTeachPO">
+        update stu_ref_teach set
+            s_id=#{sId,jdbcType=VARCHAR},
+            t_id=#{tId,jdbcType=VARCHAR}
+        where id=#{id,jdbcType=VARCHAR}
+    </update>
+
+    <delete id="delete">
+        delete from stu_ref_teach
+        where id=#{arg0,jdbcType=VARCHAR}
+    </delete>
+
+
+    <sql id="queryCondition">
+        <if test="sId != null and sId != '' ">
+            and t.s_id = #{sId}
+        </if>
+        <if test="tId != null and tId != '' ">
+            and t.t_id = #{tId}
+        </if>
+        <bind name="s_name_con_ex" value="sName != null and sName != '' " />
+        <if test="s_name_con_ex ">
+            and exists(
+                select 1 from student e1
+                where e1.id = t.s_id
+            <if test="s_name_con_ex">
+                <bind name="sName_pattern" value="'%' + sName + '%'" />
+                and e1.`name` like #{sName_pattern}
+            </if>
+            )
+        </if>
+        <bind name="t_name_con_ex" value="tName != null and tName != '' " />
+        <bind name="subject_con_ex" value="subject != null and subject != '' " />
+        <if test="t_name_con_ex or subject_con_ex ">
+            and exists(
+                select 1 from teacher e2
+                where e2.id = t.t_id
+            <if test="t_name_con_ex">
+                <bind name="tName_pattern" value="'%' + tName + '%'" />
+                and e2.tname like #{tName_pattern}
+            </if>
+            <if test="subject_con_ex">
+                and e2.`subject` = #{subject}
+            </if>
+            )
+        </if>
+    </sql>
+
+    <sql id="orderCondition">
+        order by
+            t.id desc
+    </sql>
+
+    <select id="findCountByQuery" parameterType="StuRefTeachQO" resultType="int">
+        select count(1) from stu_ref_teach t
+        <where>
+        <include refid="queryCondition"/>
+        </where>
+    </select>
+
+    <select id="findListByQuery" parameterType="StuRefTeachQO" resultType="StuRefTeachListVO">
+        select
+            <include refid="stuRefTeachColumns"><property name="alias" value="t"/></include>
+            ,c1.`name` as sName
+            ,c2.tname as tName
+            ,c2.`subject` as subject
+        from stu_ref_teach t
+        left outer join student c1
+            on c1.id = t.s_id
+        left outer join teacher c2
+            on c2.id = t.t_id
+        <where>
+        <include refid="queryCondition"/>
+        </where>
+        <include refid="orderCondition"/>
+        limit #{startIndex},#{pageSize}
+    </select>
+
+    <select id="getCountBySId" parameterType="String" resultType="int">
+        select count(1)
+        from stu_ref_teach t
+        where
+            t.s_id=#{arg0}
+    </select>
+
+    <select id="getCountByTId" parameterType="String" resultType="int">
+        select count(1)
+        from stu_ref_teach t
+        where
+            t.t_id=#{arg0}
+    </select>
+
+
+
+    <!-- 以上是自动生成的代码，尽量不要手动修改，新的sql请写在本行注释以下区域 -->
+
+
+</mapper>

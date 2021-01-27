@@ -1,0 +1,13 @@
+
+version: "3"
+services:
+  cpms-redis:
+    image: redis:5.0
+    hostname: cpms-redis
+    container_name: cpms-redis
+    restart: always
+    ports:
+     - 6379:6379
+    networks:
+     - default
+

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.post.m2m.dao.invoicedetail.InvoiceDetailDAO">
+
+
+    <sql id="invoiceDetailColumns">
+        ${alias}.id,
+        ${alias}.count,
+        ${alias}.people,
+        ${alias}.price,
+        ${alias}.invoice_id as invoiceId
+    </sql>
+
+
+    <select id="findById" resultType="InvoiceDetailPO">
+        select
+            <include refid="invoiceDetailColumns"><property name="alias" value="t"/></include>
+        from invoice_detail t
+        <where>
+            and t.id = #{arg0}
+        </where>
+        limit 1
+    </select>
+
+    <select id="exist" resultType="boolean">
+        select count(1) from invoice_detail
+        <where>
+            and id = #{arg0}
+        </where>
+    </select>
+
+    <insert id="_save" keyProperty="id" parameterType="InvoiceDetailPO">
+        insert into invoice_detail(
+        id,
+        count,
+        people,
+        price,
+        invoice_id
+        ) VALUES (
+        #{id,jdbcType=VARCHAR},
+        #{count,jdbcType=INTEGER},
+        #{people,jdbcType=VARCHAR},
+        #{price,jdbcType=DOUBLE},
+        #{invoiceId,jdbcType=VARCHAR}
+        )
+    </insert>
+
+
+    <update id="_update" parameterType="InvoiceDetailPO">
+        update invoice_detail set
+            count=#{count,jdbcType=INTEGER},
+            people=#{people,jdbcType=VARCHAR},
+            price=#{price,jdbcType=DOUBLE},
+            invoice_id=#{invoiceId,jdbcType=VARCHAR}
+        where id=#{id,jdbcType=VARCHAR}
+    </update>
+
+    <delete id="delete">
+        delete from invoice_detail
+        where id=#{arg0,jdbcType=VARCHAR}
+    </delete>
+
+
+    <sql id="queryCondition">
+        <if test="people != null and people != '' ">
+            <bind name="people_pattern" value="'%' + people + '%'" />
+            and t.people like #{people_pattern}
+        </if>
+        <if test="invoiceId != null and invoiceId != '' ">
+            and t.invoice_id = #{invoiceId}
+        </if>
+        <bind name="invoice_name_con_ex" value="invoiceName != null and invoiceName != '' " />
+        <if test="invoice_name_con_ex ">
+            and exists(
+                select 1 from invoice e1
+                where e1.id = t.invoice_id
+            <if test="invoice_name_con_ex">
+                <bind name="invoiceName_pattern" value="'%' + invoiceName + '%'" />
+                and e1.invoice_name like #{invoiceName_pattern}
+            </if>
+            )
+        </if>
+    </sql>
+
+    <sql id="orderCondition">
+        order by
+            t.id desc
+    </sql>
+
+    <select id="findCountByQuery" parameterType="InvoiceDetailQO" resultType="int">
+        select count(1) from invoice_detail t
+        <where>
+        <include refid="queryCondition"/>
+        </where>
+    </select>
+
+    <select id="findListByQuery" parameterType="InvoiceDetailQO" resultType="InvoiceDetailListVO">
+        select
+            <include refid="invoiceDetailColumns"><property name="alias" value="t"/></include>
+            ,c1.invoice_name as invoiceName
+        from invoice_detail t
+        left outer join invoice c1
+            on c1.id = t.invoice_id
+        <where>
+        <include refid="queryCondition"/>
+        </where>
+        <include refid="orderCondition"/>
+        limit #{startIndex},#{pageSize}
+    </select>
+
+    <select id="getCountByInvoiceId" parameterType="String" resultType="int">
+        select count(1)
+        from invoice_detail t
+        where
+            t.invoice_id=#{arg0}
+    </select>
+
+
+
+    <!-- 以上是自动生成的代码，尽量不要手动修改，新的sql请写在本行注释以下区域 -->
+
+
+</mapper>

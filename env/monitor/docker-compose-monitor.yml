@@ -1,0 +1,12 @@
+version: '3'
+services:
+  devp-monitor:
+    image: harbor.cpit.com/cpdp/devp-monitor:1.0
+    hostname: devp-monitor
+    container_name: devp-monitor
+    restart: always
+    ports:
+      - 5001:5001
+    networks:
+      - default
+

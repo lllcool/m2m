@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.post.m2m.dao.teacher.TeacherDAO">
+
+
+    <sql id="teacherColumns">
+        ${alias}.id,
+        ${alias}.`subject`,
+        ${alias}.tname
+    </sql>
+
+
+    <select id="findById" resultType="TeacherPO">
+        select
+            <include refid="teacherColumns"><property name="alias" value="t"/></include>
+        from teacher t
+        <where>
+            and t.id = #{arg0}
+        </where>
+        limit 1
+    </select>
+
+    <select id="exist" resultType="boolean">
+        select count(1) from teacher
+        <where>
+            and id = #{arg0}
+        </where>
+    </select>
+
+    <insert id="_save" keyProperty="id" parameterType="TeacherPO">
+        insert into teacher(
+        id,
+        `subject`,
+        tname
+        ) VALUES (
+        #{id,jdbcType=VARCHAR},
+        #{subject,jdbcType=VARCHAR},
+        #{tName,jdbcType=VARCHAR}
+        )
+    </insert>
+
+
+    <update id="_update" parameterType="TeacherPO">
+        update teacher set
+            `subject`=#{subject,jdbcType=VARCHAR},
+            tname=#{tName,jdbcType=VARCHAR}
+        where id=#{id,jdbcType=VARCHAR}
+    </update>
+
+    <delete id="delete">
+        delete from teacher
+        where id=#{arg0,jdbcType=VARCHAR}
+    </delete>
+
+
+    <sql id="queryCondition">
+        <if test="subject != null and subject != '' ">
+            and t.`subject` = #{subject}
+        </if>
+        <if test="tName != null and tName != '' ">
+            <bind name="tName_pattern" value="'%' + tName + '%'" />
+            and t.tname like #{tName_pattern}
+        </if>
+    </sql>
+
+    <sql id="orderCondition">
+        order by
+            t.id desc
+    </sql>
+
+    <select id="findCountByQuery" parameterType="TeacherQO" resultType="int">
+        select count(1) from teacher t
+        <where>
+        <include refid="queryCondition"/>
+        </where>
+    </select>
+
+    <select id="findListByQuery" parameterType="TeacherQO" resultType="TeacherListVO">
+        select
+            <include refid="teacherColumns"><property name="alias" value="t"/></include>
+        from teacher t
+        <where>
+        <include refid="queryCondition"/>
+        </where>
+        <include refid="orderCondition"/>
+        limit #{startIndex},#{pageSize}
+    </select>
+
+    <select id="findOptions" parameterType="OptionQO" resultType="OptionVO">
+        select
+            t.id as `key`,
+            t.tname as `value`
+        from teacher t
+        <where>
+            <if test="lastKey != null">
+                and t.id > #{lastKey}
+            </if>
+            <if test="matchValue != null and matchValue != '' ">
+                <bind name="matchValue_pattern" value="'%' + matchValue + '%'" />
+                and t.tname like #{matchValue_pattern}
+            </if>
+        </where>
+        order by t.id asc
+        limit #{limit}
+    </select>
+
+
+
+    <!-- 以上是自动生成的代码，尽量不要手动修改，新的sql请写在本行注释以下区域 -->
+
+
+</mapper>

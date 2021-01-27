@@ -1,0 +1,15 @@
+
+version: "3"
+services:
+  cpms-nacos:
+    image: harbor.cpit.com/cpms/nacos-server:1.1.4
+    container_name: cpms-nacos
+    hostname: cpms-nacos
+    restart: always
+    environment:
+     - PREFER_HOST_MODE=hostname
+     - MODE=standalone
+    ports:
+     - "8848:8848"
+    networks:
+     - default
