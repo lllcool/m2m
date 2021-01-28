@@ -4,7 +4,9 @@ import com.post.common.constant.ErrorCode;
 import com.post.common.exception.BusinessException;
 import com.post.common.pojo.vo.PageVO;
 import com.post.common.util.UUIDUtil;
-import com.post.m2m.dao.invoicedetail.InvoiceDAO;
+import com.post.m2m.dao.invoicedetail.Invoice1DAO;
+import com.post.m2m.dao.invoicedetail.Invoice2DAO;
+import com.post.m2m.dao.invoicedetail.Invoice4DAO;
 import com.post.m2m.dao.invoicedetail.InvoiceDetailDAO;
 import com.post.m2m.pojo.dto.invoicedetail.InvoiceDetailAddDTO;
 import com.post.m2m.pojo.dto.invoicedetail.InvoiceDetailUpdateDTO;
@@ -32,7 +34,11 @@ import java.util.List;
 public class InvoiceDetailService {
 
     @Autowired
-    private InvoiceDAO invoiceDAO;
+    private Invoice1DAO invoice1DAO;
+    @Autowired
+    private Invoice2DAO invoice2DAO;
+    @Autowired
+    private Invoice4DAO invoice4DAO;
     @Autowired
     private InvoiceDetailDAO invoiceDetailDAO;
 

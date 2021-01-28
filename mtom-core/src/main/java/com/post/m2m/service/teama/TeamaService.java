@@ -6,7 +6,7 @@ import com.post.common.pojo.qo.OptionQO;
 import com.post.common.pojo.vo.OptionVO;
 import com.post.common.pojo.vo.PageVO;
 import com.post.common.util.UUIDUtil;
-import com.post.m2m.dao.teama.TeamGroupDAO;
+import com.post.m2m.dao.teama.TeamGroup3DAO;
 import com.post.m2m.dao.teama.TeamaDAO;
 import com.post.m2m.pojo.dto.teama.TeamaAddDTO;
 import com.post.m2m.pojo.dto.teama.TeamaUpdateDTO;
@@ -31,7 +31,7 @@ import java.util.List;
 public class TeamaService {
 
     @Autowired
-    private TeamGroupDAO teamGroupDAO;
+    private TeamGroup3DAO teamGroup3DAO;
     @Autowired
     private TeamaDAO teamaDAO;
 
