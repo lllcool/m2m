@@ -64,6 +64,23 @@ CREATE TABLE `ball` (
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='球';
 
+DROP TABLE IF EXISTS `teama`;
+
+CREATE TABLE `teama` (
+    `id` varchar(32) COMMENT '主键ID',
+    `team_name` varchar(20) DEFAULT NULL COMMENT '团队名称',
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='团队';
+
+DROP TABLE IF EXISTS `team_group`;
+
+CREATE TABLE `team_group` (
+    `id` varchar(32) COMMENT '主键ID',
+    `count` varchar(5) DEFAULT NULL COMMENT '数量',
+    `team_id` varchar(32) DEFAULT NULL COMMENT '团队',
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='团队组成';
+
 
 
 SET FOREIGN_KEY_CHECKS = 1;

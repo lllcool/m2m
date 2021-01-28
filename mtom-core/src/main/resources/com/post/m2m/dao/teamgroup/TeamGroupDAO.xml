@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.post.m2m.dao.teamgroup.TeamGroupDAO">
+
+
+    <sql id="teamGroupColumns">
+        ${alias}.id,
+        ${alias}.count,
+        ${alias}.team_id as teamId
+    </sql>
+
+
+    <select id="findById" resultType="TeamGroupPO">
+        select
+            <include refid="teamGroupColumns"><property name="alias" value="t"/></include>
+        from team_group t
+        <where>
+            and t.id = #{arg0}
+        </where>
+        limit 1
+    </select>
+
+    <select id="exist" resultType="boolean">
+        select count(1) from team_group
+        <where>
+            and id = #{arg0}
+        </where>
+    </select>
+
+    <insert id="_save" keyProperty="id" parameterType="TeamGroupPO">
+        insert into team_group(
+        id,
+        count,
+        team_id
+        ) VALUES (
+        #{id,jdbcType=VARCHAR},
+        #{count,jdbcType=VARCHAR},
+        #{teamId,jdbcType=VARCHAR}
+        )
+    </insert>
+
+
+    <update id="_update" parameterType="TeamGroupPO">
+        update team_group set
+            count=#{count,jdbcType=VARCHAR},
+            team_id=#{teamId,jdbcType=VARCHAR}
+        where id=#{id,jdbcType=VARCHAR}
+    </update>
+
+    <delete id="delete">
+        delete from team_group
+        where id=#{arg0,jdbcType=VARCHAR}
+    </delete>
+
+
+    <sql id="queryCondition">
+        <if test="teamId != null and teamId != '' ">
+            and t.team_id = #{teamId}
+        </if>
+        <bind name="team_name_con_ex" value="teamName != null and teamName != '' " />
+        <if test="team_name_con_ex ">
+            and exists(
+                select 1 from teama e1
+                where e1.id = t.team_id
+            <if test="team_name_con_ex">
+                and e1.team_name = #{teamName}
+            </if>
+            )
+        </if>
+    </sql>
+
+    <sql id="orderCondition">
+        order by
+            t.id desc
+    </sql>
+
+    <select id="findCountByQuery" parameterType="TeamGroupQO" resultType="int">
+        select count(1) from team_group t
+        <where>
+        <include refid="queryCondition"/>
+        </where>
+    </select>
+
+    <select id="findListByQuery" parameterType="TeamGroupQO" resultType="TeamGroupListVO">
+        select
+            <include refid="teamGroupColumns"><property name="alias" value="t"/></include>
+            ,c1.team_name as teamName
+        from team_group t
+        left outer join teama c1
+            on c1.id = t.team_id
+        <where>
+        <include refid="queryCondition"/>
+        </where>
+        <include refid="orderCondition"/>
+        limit #{startIndex},#{pageSize}
+    </select>
+
+    <select id="getCountByTeamId" parameterType="String" resultType="int">
+        select count(1)
+        from team_group t
+        where
+            t.team_id=#{arg0}
+    </select>
+
+
+
+    <!-- 以上是自动生成的代码，尽量不要手动修改，新的sql请写在本行注释以下区域 -->
+
+
+</mapper>

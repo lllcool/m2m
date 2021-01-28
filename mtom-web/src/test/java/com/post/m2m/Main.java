@@ -6,6 +6,8 @@ import com.post.m2m.web.rest.invoicedetail.InvoiceDetailControllerTest;
 import com.post.m2m.web.rest.stu_ref_teach.StuRefTeachControllerTest;
 import com.post.m2m.web.rest.student.StudentControllerTest;
 import com.post.m2m.web.rest.teacher.TeacherControllerTest;
+import com.post.m2m.web.rest.teama.TeamaControllerTest;
+import com.post.m2m.web.rest.teamgroup.TeamGroupControllerTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
@@ -23,6 +25,8 @@ import org.junit.runners.Suite;
         StudentControllerTest.class,
         StuRefTeachControllerTest.class,
         BallControllerTest.class,
+        TeamaControllerTest.class,
+        TeamGroupControllerTest.class,
 })
 public class Main {
 

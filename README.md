@@ -52,3 +52,16 @@
 | id | varchar(32) | 是 | 主键 | 主键ID |
 | ball_name | varchar(10) | 是 |  | 球类名称 |
 | price | int(5) |  否  |  | 价钱 |
+
+### 团队【teama】
+|字段名 | 类型 | 非空 | 键 | 注释 |
+|------ | ---- | --- | --- | ---- |
+| id | varchar(32) | 是 | 主键 | 主键ID |
+| team_name | varchar(20) |  否  |  | 团队名称 |
+
+### 团队组成【team_group】
+|字段名 | 类型 | 非空 | 键 | 注释 |
+|------ | ---- | --- | --- | ---- |
+| id | varchar(32) | 是 | 主键 | 主键ID |
+| count | varchar(5) |  否  |  | 数量 |
+| team_id | varchar(32) |  否  |  | 团队 |
