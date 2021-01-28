@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `teacher`;
 CREATE TABLE `teacher` (
     `id` varchar(32) COMMENT '主键ID',
     `subject` varchar(10) DEFAULT NULL COMMENT '科目',
-    `teacher_name` varchar(10) DEFAULT NULL COMMENT '名字',
+    `teacher_name` varchar(10) DEFAULT NULL COMMENT '老师姓名',
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='老师';
 

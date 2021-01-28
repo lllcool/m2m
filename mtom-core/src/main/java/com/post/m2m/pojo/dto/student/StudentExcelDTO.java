@@ -19,7 +19,7 @@ import static com.post.m2m.pojo.example.student.StudentExample.*;
 @EqualsAndHashCode(callSuper=true)
 public class StudentExcelDTO extends AbstractExcelDTO {
 
-    @ExcelProperty("姓名*")
+    @ExcelProperty("学生姓名*")
     @ColumnWidth(19)
     private String name;
 

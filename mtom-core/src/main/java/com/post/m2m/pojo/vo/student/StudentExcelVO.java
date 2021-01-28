@@ -20,7 +20,7 @@ public class StudentExcelVO extends AbstractVO {
     @ColumnWidth(19)
     private String id;
 
-    @ExcelProperty("姓名")
+    @ExcelProperty("学生姓名")
     @ColumnWidth(19)
     private String name;
 

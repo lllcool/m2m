@@ -24,11 +24,11 @@ public class StuRefTeachExcelVO extends AbstractVO {
     @ColumnWidth(19)
     private String teacherId;
 
-    @ExcelProperty("姓名")
+    @ExcelProperty("学生姓名")
     @ColumnWidth(19)
     private String stuName;
 
-    @ExcelProperty("名字")
+    @ExcelProperty("老师姓名")
     @ColumnWidth(19)
     private String teaName;
 

@@ -22,7 +22,7 @@ public class TeacherExcelDTO extends AbstractExcelDTO {
     @ColumnWidth(12)
     private String subject;
 
-    @ExcelProperty("名字")
+    @ExcelProperty("老师姓名")
     @ColumnWidth(19)
     private String teacherName;
 

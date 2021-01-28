@@ -26,7 +26,7 @@ public class TeacherPO extends AbstractPO {
     private String subject;
 
     /**
-     * 名字
+     * 老师姓名
      */
     private String teacherName;
 

@@ -30,7 +30,7 @@
 |------ | ---- | --- | --- | ---- |
 | id | varchar(32) | 是 | 主键 | 主键ID |
 | subject | varchar(10) |  否  |  | 科目 |
-| teacher_name | varchar(10) |  否  |  | 名字 |
+| teacher_name | varchar(10) |  否  |  | 老师姓名 |
 
 ### 学生【student】
 |字段名 | 类型 | 非空 | 键 | 注释 |
