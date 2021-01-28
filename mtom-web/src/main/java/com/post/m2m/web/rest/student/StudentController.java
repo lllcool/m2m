@@ -118,7 +118,7 @@ public class StudentController extends AbstractController implements StudentAPI 
     @GetMapping("/export")
     public void exportExcel(@Valid StudentQO studentQO, HttpServletResponse response) throws Exception {
         studentQO.setPageSize(Integer.MAX_VALUE);
-        studentQO.setPageNo(1);
+        studentQO.setCurrentPage(1);
         List<StudentListVO> list = studentService.list(studentQO).getList();
         response.setContentType("application/vnd.ms-excel");
         response.setCharacterEncoding("utf-8");

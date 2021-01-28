@@ -120,7 +120,7 @@ public class InvoiceController extends AbstractController implements InvoiceAPI 
     @GetMapping("/export")
     public void exportExcel(@Valid InvoiceQO invoiceQO, HttpServletResponse response) throws Exception {
         invoiceQO.setPageSize(Integer.MAX_VALUE);
-        invoiceQO.setPageNo(1);
+        invoiceQO.setCurrentPage(1);
         List<InvoiceListVO> list = invoiceService.list(invoiceQO).getList();
         response.setContentType("application/vnd.ms-excel");
         response.setCharacterEncoding("utf-8");

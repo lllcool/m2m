@@ -109,7 +109,7 @@ public class StuRefTeachController extends AbstractController implements StuRefT
     @GetMapping("/export")
     public void exportExcel(@Valid StuRefTeachQO stuRefTeachQO, HttpServletResponse response) throws Exception {
         stuRefTeachQO.setPageSize(Integer.MAX_VALUE);
-        stuRefTeachQO.setPageNo(1);
+        stuRefTeachQO.setCurrentPage(1);
         List<StuRefTeachListVO> list = stuRefTeachService.list(stuRefTeachQO).getList();
         response.setContentType("application/vnd.ms-excel");
         response.setCharacterEncoding("utf-8");

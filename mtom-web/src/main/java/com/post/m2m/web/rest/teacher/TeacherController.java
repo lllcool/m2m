@@ -118,7 +118,7 @@ public class TeacherController extends AbstractController implements TeacherAPI 
     @GetMapping("/export")
     public void exportExcel(@Valid TeacherQO teacherQO, HttpServletResponse response) throws Exception {
         teacherQO.setPageSize(Integer.MAX_VALUE);
-        teacherQO.setPageNo(1);
+        teacherQO.setCurrentPage(1);
         List<TeacherListVO> list = teacherService.list(teacherQO).getList();
         response.setContentType("application/vnd.ms-excel");
         response.setCharacterEncoding("utf-8");
