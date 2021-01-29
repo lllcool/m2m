@@ -1,8 +1,8 @@
 package com.post.m2m.pojo.vo.sturefteach;
 
 import com.post.common.pojo.vo.AbstractVO;
-import com.post.m2m.pojo.example.sturefteach.StudentExample;
-import com.post.m2m.pojo.example.sturefteach.TeacherExample;
+import com.post.m2m.pojo.example.student.StudentExample;
+import com.post.m2m.pojo.example.teacher.TeacherExample;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

@@ -1,8 +1,8 @@
 package com.post.m2m.pojo.qo.sturefteach;
 
 import com.post.common.pojo.qo.PageQO;
-import com.post.m2m.pojo.example.sturefteach.StudentExample;
-import com.post.m2m.pojo.example.sturefteach.TeacherExample;
+import com.post.m2m.pojo.example.student.StudentExample;
+import com.post.m2m.pojo.example.teacher.TeacherExample;
 import io.swagger.annotations.ApiParam;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

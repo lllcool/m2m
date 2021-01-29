@@ -1,7 +1,7 @@
 package com.post.m2m.pojo.vo.teamgroup;
 
 import com.post.common.pojo.vo.AbstractVO;
-import com.post.m2m.pojo.example.teamgroup.TeamaExample;
+import com.post.m2m.pojo.example.teama.TeamaExample;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

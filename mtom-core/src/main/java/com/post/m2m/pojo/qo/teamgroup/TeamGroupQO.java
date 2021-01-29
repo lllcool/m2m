@@ -1,7 +1,7 @@
 package com.post.m2m.pojo.qo.teamgroup;
 
 import com.post.common.pojo.qo.PageQO;
-import com.post.m2m.pojo.example.teamgroup.TeamaExample;
+import com.post.m2m.pojo.example.teama.TeamaExample;
 import io.swagger.annotations.ApiParam;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
