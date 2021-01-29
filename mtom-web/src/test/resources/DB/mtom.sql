@@ -1,24 +1,3 @@
-DROP TABLE IF EXISTS `invoice`;
-
-CREATE TABLE `invoice` (
-    `id` varchar(32) COMMENT '主键ID',
-    `type` int(8) NOT NULL DEFAULT '1' COMMENT '发票类别',
-    `invoice_name` varchar(10) DEFAULT NULL COMMENT '发票名称',
-    `invoice` varchar(20) NOT NULL DEFAULT 'q' COMMENT '发票标题',
-    PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='发票信息';
-
-DROP TABLE IF EXISTS `invoice_detail`;
-
-CREATE TABLE `invoice_detail` (
-    `id` varchar(32) COMMENT '主键ID',
-    `count` int(4) NOT NULL DEFAULT '0' COMMENT '数量',
-    `people` varchar(20) DEFAULT NULL COMMENT '开票人',
-    `price` double(2,0) NOT NULL COMMENT '价格',
-    `invoice_id` varchar(32) NOT NULL COMMENT '发票ID',
-    PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='发票明细';
-
 DROP TABLE IF EXISTS `teacher`;
 
 CREATE TABLE `teacher` (

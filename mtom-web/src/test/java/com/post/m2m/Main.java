@@ -1,8 +1,6 @@
 package com.post.m2m;
 
 import com.post.m2m.web.rest.ball.BallControllerTest;
-import com.post.m2m.web.rest.invoice.InvoiceControllerTest;
-import com.post.m2m.web.rest.invoicedetail.InvoiceDetailControllerTest;
 import com.post.m2m.web.rest.student.StudentControllerTest;
 import com.post.m2m.web.rest.sturefteach.StuRefTeachControllerTest;
 import com.post.m2m.web.rest.teacher.TeacherControllerTest;
@@ -19,8 +17,6 @@ import org.junit.runners.Suite;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        InvoiceControllerTest.class,
-        InvoiceDetailControllerTest.class,
         TeacherControllerTest.class,
         StudentControllerTest.class,
         StuRefTeachControllerTest.class,

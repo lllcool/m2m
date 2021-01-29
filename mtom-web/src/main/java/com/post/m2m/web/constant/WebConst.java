@@ -19,10 +19,6 @@ public class WebConst {
      */
     public static class ModulePath {
 
-        public static final String INVOICE = API_PATH + "/invoice";
-
-        public static final String INVOICEDETAIL = API_PATH + "/invoicedetail";
-
         public static final String TEACHER = API_PATH + "/teacher";
 
         public static final String STUDENT = API_PATH + "/student";
