@@ -7,7 +7,7 @@ import com.post.common.pojo.vo.OptionVO;
 import com.post.common.pojo.vo.PageVO;
 import com.post.common.util.UUIDUtil;
 import com.post.m2m.dao.invoice.InvoiceDAO;
-import com.post.m2m.dao.invoiceDetail.InvoiceDetailDAO;
+import com.post.m2m.dao.invoicedetail.InvoiceDetailDAO;
 import com.post.m2m.pojo.dto.invoice.InvoiceAddDTO;
 import com.post.m2m.pojo.dto.invoice.InvoiceUpdateDTO;
 import com.post.m2m.pojo.mapper.invoice.InvoiceMapper;
