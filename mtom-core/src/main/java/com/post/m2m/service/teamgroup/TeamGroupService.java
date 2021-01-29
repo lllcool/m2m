@@ -5,9 +5,7 @@ import com.post.common.exception.BusinessException;
 import com.post.common.pojo.vo.PageVO;
 import com.post.common.util.UUIDUtil;
 import com.post.m2m.dao.teamgroup.TeamGroupDAO;
-import com.post.m2m.dao.teamgroup.Teama1DAO;
-import com.post.m2m.dao.teamgroup.Teama2DAO;
-import com.post.m2m.dao.teamgroup.Teama4DAO;
+import com.post.m2m.dao.teamgroup.TeamaDAO;
 import com.post.m2m.pojo.dto.teamgroup.TeamGroupAddDTO;
 import com.post.m2m.pojo.dto.teamgroup.TeamGroupUpdateDTO;
 import com.post.m2m.pojo.mapper.teamgroup.TeamGroupMapper;
@@ -33,11 +31,7 @@ public class TeamGroupService {
     @Autowired
     private TeamGroupDAO teamGroupDAO;
     @Autowired
-    private Teama1DAO teama1DAO;
-    @Autowired
-    private Teama2DAO teama2DAO;
-    @Autowired
-    private Teama4DAO teama4DAO;
+    private TeamaDAO teamaDAO;
 
 
     /**

@@ -6,7 +6,7 @@ import com.post.common.pojo.qo.OptionQO;
 import com.post.common.pojo.vo.OptionVO;
 import com.post.common.pojo.vo.PageVO;
 import com.post.common.util.UUIDUtil;
-import com.post.m2m.dao.student.StuRefTeach3DAO;
+import com.post.m2m.dao.student.StuRefTeachDAO;
 import com.post.m2m.dao.student.StudentDAO;
 import com.post.m2m.pojo.dto.student.StudentAddDTO;
 import com.post.m2m.pojo.dto.student.StudentUpdateDTO;
@@ -32,7 +32,7 @@ import java.util.List;
 public class StudentService {
 
     @Autowired
-    private StuRefTeach3DAO stuRefTeach3DAO;
+    private StuRefTeachDAO stuRefTeachDAO;
     @Autowired
     private StudentDAO studentDAO;
 

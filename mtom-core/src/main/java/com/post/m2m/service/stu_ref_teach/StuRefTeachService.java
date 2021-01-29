@@ -4,7 +4,9 @@ import com.post.common.constant.ErrorCode;
 import com.post.common.exception.BusinessException;
 import com.post.common.pojo.vo.PageVO;
 import com.post.common.util.UUIDUtil;
-import com.post.m2m.dao.stu_ref_teach.*;
+import com.post.m2m.dao.stu_ref_teach.StuRefTeachDAO;
+import com.post.m2m.dao.stu_ref_teach.StudentDAO;
+import com.post.m2m.dao.stu_ref_teach.TeacherDAO;
 import com.post.m2m.pojo.dto.stu_ref_teach.StuRefTeachAddDTO;
 import com.post.m2m.pojo.dto.stu_ref_teach.StuRefTeachUpdateDTO;
 import com.post.m2m.pojo.mapper.stu_ref_teach.StuRefTeachMapper;
@@ -34,17 +36,9 @@ public class StuRefTeachService {
     @Autowired
     private StuRefTeachDAO stuRefTeachDAO;
     @Autowired
-    private Student1DAO student1DAO;
+    private StudentDAO studentDAO;
     @Autowired
-    private Student2DAO student2DAO;
-    @Autowired
-    private Student4DAO student4DAO;
-    @Autowired
-    private Teacher1DAO teacher1DAO;
-    @Autowired
-    private Teacher2DAO teacher2DAO;
-    @Autowired
-    private Teacher4DAO teacher4DAO;
+    private TeacherDAO teacherDAO;
 
 
     /**
