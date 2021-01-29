@@ -1,14 +1,14 @@
-package com.post.m2m.pojo.qo.stu_ref_teach;
+package com.post.m2m.pojo.qo.sturefteach;
 
 import com.post.common.pojo.qo.PageQO;
-import com.post.m2m.pojo.example.stu_ref_teach.StudentExample;
-import com.post.m2m.pojo.example.stu_ref_teach.TeacherExample;
+import com.post.m2m.pojo.example.sturefteach.StudentExample;
+import com.post.m2m.pojo.example.sturefteach.TeacherExample;
 import io.swagger.annotations.ApiParam;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.hibernate.validator.constraints.Length;
 
-import static com.post.m2m.pojo.example.stu_ref_teach.StuRefTeachExample.*;
+import static com.post.m2m.pojo.example.sturefteach.StuRefTeachExample.*;
 
 /**
  * 查询【StuRefTeach】的参数

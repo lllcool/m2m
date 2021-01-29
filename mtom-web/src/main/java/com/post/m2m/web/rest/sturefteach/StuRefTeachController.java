@@ -1,4 +1,4 @@
-package com.post.m2m.web.rest.stu_ref_teach;
+package com.post.m2m.web.rest.sturefteach;
 
 import com.alibaba.excel.EasyExcel;
 import com.alibaba.excel.ExcelWriter;
@@ -10,18 +10,18 @@ import com.post.common.util.DateUtil;
 import com.post.m2m.excel.handler.TemplateCellStyleStrategy;
 import com.post.m2m.excel.handler.TitleDescriptionWriteHandler;
 import com.post.m2m.excel.listener.SyncReadExcelListener;
-import com.post.m2m.pojo.dto.stu_ref_teach.StuRefTeachAddDTO;
-import com.post.m2m.pojo.dto.stu_ref_teach.StuRefTeachExcelDTO;
-import com.post.m2m.pojo.dto.stu_ref_teach.StuRefTeachUpdateDTO;
-import com.post.m2m.pojo.mapper.stu_ref_teach.StuRefTeachMapper;
-import com.post.m2m.pojo.po.stu_ref_teach.StuRefTeachPO;
-import com.post.m2m.pojo.qo.stu_ref_teach.StuRefTeachQO;
-import com.post.m2m.pojo.vo.stu_ref_teach.StuRefTeachExcelVO;
-import com.post.m2m.pojo.vo.stu_ref_teach.StuRefTeachListVO;
-import com.post.m2m.pojo.vo.stu_ref_teach.StuRefTeachShowVO;
-import com.post.m2m.service.stu_ref_teach.StuRefTeachService;
+import com.post.m2m.pojo.dto.sturefteach.StuRefTeachAddDTO;
+import com.post.m2m.pojo.dto.sturefteach.StuRefTeachExcelDTO;
+import com.post.m2m.pojo.dto.sturefteach.StuRefTeachUpdateDTO;
+import com.post.m2m.pojo.mapper.sturefteach.StuRefTeachMapper;
+import com.post.m2m.pojo.po.sturefteach.StuRefTeachPO;
+import com.post.m2m.pojo.qo.sturefteach.StuRefTeachQO;
+import com.post.m2m.pojo.vo.sturefteach.StuRefTeachExcelVO;
+import com.post.m2m.pojo.vo.sturefteach.StuRefTeachListVO;
+import com.post.m2m.pojo.vo.sturefteach.StuRefTeachShowVO;
+import com.post.m2m.service.sturefteach.StuRefTeachService;
 import com.post.m2m.web.AbstractController;
-import com.post.m2m.web.api.stu_ref_teach.StuRefTeachAPI;
+import com.post.m2m.web.api.sturefteach.StuRefTeachAPI;
 import com.post.m2m.web.constant.WebConst;
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,7 +50,7 @@ import java.util.stream.Collectors;
  * @date 2021/01/25
  */
 @RestController
-@RequestMapping(WebConst.ModulePath.STU_REF_TEACH + "/stuRefTeach")
+@RequestMapping(WebConst.ModulePath.STUREFTEACH + "/stuRefTeach")
 public class StuRefTeachController extends AbstractController implements StuRefTeachAPI {
 
     @Autowired
@@ -63,7 +63,7 @@ public class StuRefTeachController extends AbstractController implements StuRefT
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<StuRefTeachShowVO> save(@Valid @RequestBody StuRefTeachAddDTO stuRefTeachAddDTO) throws Exception {
         StuRefTeachPO stuRefTeach = stuRefTeachService.save(stuRefTeachAddDTO);
-        return ResponseEntity.created(new URI(WebConst.ModulePath.STU_REF_TEACH + "/stuRefTeach/" + stuRefTeach.getId()))
+        return ResponseEntity.created(new URI(WebConst.ModulePath.STUREFTEACH + "/stuRefTeach/" + stuRefTeach.getId()))
                 .body(StuRefTeachMapper.INSTANCE.toShowVO(stuRefTeach));
     }
 

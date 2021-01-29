@@ -1,12 +1,12 @@
-package com.post.m2m.help.stu_ref_teach;
+package com.post.m2m.help.sturefteach;
 
-import com.post.m2m.pojo.dto.stu_ref_teach.*;
-import com.post.m2m.pojo.po.stu_ref_teach.*;
-import com.post.m2m.service.stu_ref_teach.StuRefTeachService;
+import com.post.m2m.pojo.dto.sturefteach.*;
+import com.post.m2m.pojo.po.sturefteach.*;
+import com.post.m2m.service.sturefteach.StuRefTeachService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import static com.post.m2m.pojo.example.stu_ref_teach.StuRefTeachExample.*;
+import static com.post.m2m.pojo.example.sturefteach.StuRefTeachExample.*;
 
 @Component
 public class StuRefTeachHelper {

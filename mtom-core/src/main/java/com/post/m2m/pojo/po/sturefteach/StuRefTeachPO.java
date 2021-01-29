@@ -1,4 +1,4 @@
-package com.post.m2m.pojo.po.stu_ref_teach;
+package com.post.m2m.pojo.po.sturefteach;
 
 import com.post.common.pojo.po.AbstractPO;
 import lombok.Data;

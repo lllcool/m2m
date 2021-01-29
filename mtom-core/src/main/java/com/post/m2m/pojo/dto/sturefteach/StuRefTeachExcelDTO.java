@@ -1,4 +1,4 @@
-package com.post.m2m.pojo.dto.stu_ref_teach;
+package com.post.m2m.pojo.dto.sturefteach;
 
 import com.alibaba.excel.annotation.ExcelProperty;
 import com.alibaba.excel.annotation.write.style.ColumnWidth;
@@ -6,7 +6,7 @@ import com.post.m2m.pojo.dto.AbstractExcelDTO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import static com.post.m2m.pojo.example.stu_ref_teach.StuRefTeachExample.*;
+import static com.post.m2m.pojo.example.sturefteach.StuRefTeachExample.*;
 
 /**
  * excel导入【StuRefTeach】的数据传输对象

@@ -27,7 +27,7 @@ public class WebConst {
 
         public static final String STUDENT = API_PATH + "/student";
 
-        public static final String STU_REF_TEACH = API_PATH + "/stu_ref_teach";
+        public static final String STUREFTEACH = API_PATH + "/sturefteach";
 
         public static final String BALL = API_PATH + "/ball";
 

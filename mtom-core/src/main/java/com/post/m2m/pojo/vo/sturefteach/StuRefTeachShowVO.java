@@ -1,14 +1,14 @@
-package com.post.m2m.pojo.vo.stu_ref_teach;
+package com.post.m2m.pojo.vo.sturefteach;
 
 import com.post.common.pojo.vo.AbstractVO;
-import com.post.m2m.pojo.example.stu_ref_teach.StudentExample;
-import com.post.m2m.pojo.example.stu_ref_teach.TeacherExample;
+import com.post.m2m.pojo.example.sturefteach.StudentExample;
+import com.post.m2m.pojo.example.sturefteach.TeacherExample;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import static com.post.m2m.pojo.example.stu_ref_teach.StuRefTeachExample.*;
+import static com.post.m2m.pojo.example.sturefteach.StuRefTeachExample.*;
 
 /**
  * 【StuRefTeach】详情展示对象

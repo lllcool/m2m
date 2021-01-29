@@ -1,12 +1,12 @@
-package com.post.m2m.pojo.mapper.stu_ref_teach;
+package com.post.m2m.pojo.mapper.sturefteach;
 
-import com.post.m2m.pojo.dto.stu_ref_teach.StuRefTeachAddDTO;
-import com.post.m2m.pojo.dto.stu_ref_teach.StuRefTeachExcelDTO;
-import com.post.m2m.pojo.dto.stu_ref_teach.StuRefTeachUpdateDTO;
-import com.post.m2m.pojo.po.stu_ref_teach.StuRefTeachPO;
-import com.post.m2m.pojo.vo.stu_ref_teach.StuRefTeachExcelVO;
-import com.post.m2m.pojo.vo.stu_ref_teach.StuRefTeachListVO;
-import com.post.m2m.pojo.vo.stu_ref_teach.StuRefTeachShowVO;
+import com.post.m2m.pojo.dto.sturefteach.StuRefTeachAddDTO;
+import com.post.m2m.pojo.dto.sturefteach.StuRefTeachExcelDTO;
+import com.post.m2m.pojo.dto.sturefteach.StuRefTeachUpdateDTO;
+import com.post.m2m.pojo.po.sturefteach.StuRefTeachPO;
+import com.post.m2m.pojo.vo.sturefteach.StuRefTeachExcelVO;
+import com.post.m2m.pojo.vo.sturefteach.StuRefTeachListVO;
+import com.post.m2m.pojo.vo.sturefteach.StuRefTeachShowVO;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.factory.Mappers;

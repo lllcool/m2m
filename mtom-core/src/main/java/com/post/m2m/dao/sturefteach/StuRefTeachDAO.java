@@ -1,7 +1,7 @@
-package com.post.m2m.dao.stu_ref_teach;
+package com.post.m2m.dao.sturefteach;
 
 import com.post.common.dao.DAO;
-import com.post.m2m.pojo.po.stu_ref_teach.StuRefTeachPO;
+import com.post.m2m.pojo.po.sturefteach.StuRefTeachPO;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 

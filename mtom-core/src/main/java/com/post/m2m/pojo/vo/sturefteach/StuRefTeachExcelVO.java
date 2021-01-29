@@ -1,4 +1,4 @@
-package com.post.m2m.pojo.vo.stu_ref_teach;
+package com.post.m2m.pojo.vo.sturefteach;
 
 import com.alibaba.excel.annotation.ExcelProperty;
 import com.alibaba.excel.annotation.write.style.ColumnWidth;

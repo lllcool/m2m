@@ -1,11 +1,11 @@
-package com.post.m2m.web.rest.stu_ref_teach;
+package com.post.m2m.web.rest.sturefteach;
 
 import com.google.common.collect.Lists;
 import com.post.common.util.JsonUtil;
-import com.post.m2m.help.stu_ref_teach.StuRefTeachHelper;
-import com.post.m2m.pojo.dto.stu_ref_teach.StuRefTeachAddDTO;
-import com.post.m2m.pojo.dto.stu_ref_teach.StuRefTeachUpdateDTO;
-import com.post.m2m.pojo.po.stu_ref_teach.StuRefTeachPO;
+import com.post.m2m.help.sturefteach.StuRefTeachHelper;
+import com.post.m2m.pojo.dto.sturefteach.StuRefTeachAddDTO;
+import com.post.m2m.pojo.dto.sturefteach.StuRefTeachUpdateDTO;
+import com.post.m2m.pojo.po.sturefteach.StuRefTeachPO;
 import com.post.m2m.web.AbstractWebTest;
 import com.post.m2m.web.constant.WebConst;
 import org.junit.Test;
@@ -38,7 +38,7 @@ public class StuRefTeachControllerTest extends AbstractWebTest {
     @Test
     public void save() throws Exception {
         StuRefTeachAddDTO addDTO = stuRefTeachHelper.getStuRefTeachAddDTO(null, null);
-        restMockMvc.perform(post(WebConst.ModulePath.STU_REF_TEACH + "/stuRefTeach")
+        restMockMvc.perform(post(WebConst.ModulePath.STUREFTEACH + "/stuRefTeach")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(JsonUtil.toJSONString(addDTO)))
                 .andExpect(status().isCreated());
@@ -51,7 +51,7 @@ public class StuRefTeachControllerTest extends AbstractWebTest {
     public void update() throws Exception {
         StuRefTeachPO stuRefTeach = stuRefTeachHelper.saveStuRefTeachExample(null, null);
         StuRefTeachUpdateDTO updateDTO = stuRefTeachHelper.getStuRefTeachUpdateDTO(stuRefTeach);
-        restMockMvc.perform(put(WebConst.ModulePath.STU_REF_TEACH + "/stuRefTeach")
+        restMockMvc.perform(put(WebConst.ModulePath.STUREFTEACH + "/stuRefTeach")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(JsonUtil.toJSONString(updateDTO)))
                 .andExpect(status().isOk());
@@ -63,7 +63,7 @@ public class StuRefTeachControllerTest extends AbstractWebTest {
     @Test
     public void list() throws Exception {
         StuRefTeachPO stuRefTeach = stuRefTeachHelper.saveStuRefTeachExample(null, null);
-        restMockMvc.perform(get(WebConst.ModulePath.STU_REF_TEACH + "/stuRefTeach"))
+        restMockMvc.perform(get(WebConst.ModulePath.STUREFTEACH + "/stuRefTeach"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.list.length()").value(is(1)));
     }
@@ -74,7 +74,7 @@ public class StuRefTeachControllerTest extends AbstractWebTest {
     @Test
     public void show() throws Exception {
         StuRefTeachPO stuRefTeach = stuRefTeachHelper.saveStuRefTeachExample(null, null);
-        restMockMvc.perform(get(WebConst.ModulePath.STU_REF_TEACH + "/stuRefTeach/{id}", stuRefTeach.getId()))
+        restMockMvc.perform(get(WebConst.ModulePath.STUREFTEACH + "/stuRefTeach/{id}", stuRefTeach.getId()))
                 .andExpect(status().isOk());
     }
 
@@ -84,7 +84,7 @@ public class StuRefTeachControllerTest extends AbstractWebTest {
     @Test
     public void del() throws Exception {
         StuRefTeachPO stuRefTeach = stuRefTeachHelper.saveStuRefTeachExample(null, null);
-        restMockMvc.perform(delete(WebConst.ModulePath.STU_REF_TEACH + "/stuRefTeach/{id}", stuRefTeach.getId()))
+        restMockMvc.perform(delete(WebConst.ModulePath.STUREFTEACH + "/stuRefTeach/{id}", stuRefTeach.getId()))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$").value(is(1)));
     }
@@ -95,7 +95,7 @@ public class StuRefTeachControllerTest extends AbstractWebTest {
     @Test
     public void deleteBatch() throws Exception {
         StuRefTeachPO stuRefTeach = stuRefTeachHelper.saveStuRefTeachExample(null, null);
-        restMockMvc.perform(delete(WebConst.ModulePath.STU_REF_TEACH + "/stuRefTeach")
+        restMockMvc.perform(delete(WebConst.ModulePath.STUREFTEACH + "/stuRefTeach")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(JsonUtil.toJSONString(Lists.newArrayList(stuRefTeach.getId()))))
                 .andExpect(status().isOk())
@@ -108,14 +108,14 @@ public class StuRefTeachControllerTest extends AbstractWebTest {
     @Test
     public void importExcel() throws Exception {
         // 首先下载excel模板
-        MvcResult mvcResult = restMockMvc.perform(get(WebConst.ModulePath.STU_REF_TEACH + "/stuRefTeach/template"))
+        MvcResult mvcResult = restMockMvc.perform(get(WebConst.ModulePath.STUREFTEACH + "/stuRefTeach/template"))
                 .andExpect(status().isOk())
                 .andReturn();
         MockHttpServletResponse response = mvcResult.getResponse();
 
         // 将模板原封不动导入
         MockMultipartFile file = new MockMultipartFile("file", response.getContentAsByteArray());
-        restMockMvc.perform(multipart(WebConst.ModulePath.STU_REF_TEACH + "/stuRefTeach/import")
+        restMockMvc.perform(multipart(WebConst.ModulePath.STUREFTEACH + "/stuRefTeach/import")
                 .file(file))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$").value(is(1)));

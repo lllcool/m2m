@@ -1,4 +1,4 @@
-package com.post.m2m.pojo.dto.stu_ref_teach;
+package com.post.m2m.pojo.dto.sturefteach;
 
 import com.post.common.pojo.dto.AbstractDTO;
 import io.swagger.annotations.ApiModel;
@@ -9,7 +9,7 @@ import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotNull;
 
-import static com.post.m2m.pojo.example.stu_ref_teach.StuRefTeachExample.*;
+import static com.post.m2m.pojo.example.sturefteach.StuRefTeachExample.*;
 
 /**
  * 修改【StuRefTeach】的参数

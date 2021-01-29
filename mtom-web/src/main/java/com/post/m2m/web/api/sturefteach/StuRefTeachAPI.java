@@ -1,11 +1,11 @@
-package com.post.m2m.web.api.stu_ref_teach;
+package com.post.m2m.web.api.sturefteach;
 
 import com.post.common.pojo.vo.PageVO;
-import com.post.m2m.pojo.dto.stu_ref_teach.StuRefTeachAddDTO;
-import com.post.m2m.pojo.dto.stu_ref_teach.StuRefTeachUpdateDTO;
-import com.post.m2m.pojo.qo.stu_ref_teach.StuRefTeachQO;
-import com.post.m2m.pojo.vo.stu_ref_teach.StuRefTeachListVO;
-import com.post.m2m.pojo.vo.stu_ref_teach.StuRefTeachShowVO;
+import com.post.m2m.pojo.dto.sturefteach.StuRefTeachAddDTO;
+import com.post.m2m.pojo.dto.sturefteach.StuRefTeachUpdateDTO;
+import com.post.m2m.pojo.qo.sturefteach.StuRefTeachQO;
+import com.post.m2m.pojo.vo.sturefteach.StuRefTeachListVO;
+import com.post.m2m.pojo.vo.sturefteach.StuRefTeachShowVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;

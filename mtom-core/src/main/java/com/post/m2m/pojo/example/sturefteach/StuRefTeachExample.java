@@ -1,4 +1,4 @@
-package com.post.m2m.pojo.example.stu_ref_teach;
+package com.post.m2m.pojo.example.sturefteach;
 
 
 /**
